@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  answers() {
+    return ([
+    {value: "X", correct: false},
+    {value: "Y", correct: true},
+    {value: "Z", correct: false},
+    {value: "A", correct: false}
+  ]);
+  }
+
+
   render() {
     return (
       <div className="App">
         <Stimulus picture="Y"/>
-        <Responses pictures={["X", "Y", "Z", "A"]}/>
+        <Responses pictures={this.answers()}/>
       </div>
     );
   }
 }
+
 
 class Stimulus extends Component {
   render() {
@@ -24,8 +34,10 @@ class Stimulus extends Component {
 }
 
 class Response extends Component {
-  checkAnswer() {
-    alert("You Win!!");
+  checkAnswer = () => {
+    if (this.props.correct){
+      alert("You Win!!");
+    }
   }
   render() {
     return (
@@ -41,7 +53,7 @@ class Responses extends Component {
     return (
       <div className="Responses">
         {this.props.pictures.map(function(picture){
-          return <Response picture={picture}/>
+          return <Response picture={picture.value} correct={picture.correct}/>
         })}
       </div>
     );
