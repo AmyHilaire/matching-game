@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <Stimulus picture="Y"/>
-        <Responses/>
+        <Responses pictures={["X", "Y", "Z", "A"]}/>
       </div>
     );
   }
@@ -17,17 +17,20 @@ class Stimulus extends Component {
   render() {
     return (
       <div className="Stimulus">
-        <h1>{this.props.picture}</h1>
+        {this.props.picture}
       </div>
     );
   }
 }
 
 class Response extends Component {
+  checkAnswer() {
+    alert("You Win!!");
+  }
   render() {
     return (
-      <span className="Response">
-        <h2>{this.props.picture}</h2>
+      <span className="Response" onClick={this.checkAnswer}>
+        {this.props.picture}
       </span>
     );
   }
@@ -37,9 +40,9 @@ class Responses extends Component {
   render() {
     return (
       <div className="Responses">
-        <Response picture="X"/>
-        <Response picture="Y"/>
-        <Response picture="Z"/>
+        {this.props.pictures.map(function(picture){
+          return <Response picture={picture}/>
+        })}
       </div>
     );
   }
