@@ -6,16 +6,42 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Stimulus picture="Y"/>
+        <Responses/>
       </div>
     );
   }
 }
 
+class Stimulus extends Component {
+  render() {
+    return (
+      <div className="Stimulus">
+        <h1>{this.props.picture}</h1>
+      </div>
+    );
+  }
+}
+
+class Response extends Component {
+  render() {
+    return (
+      <span className="Response">
+        <h2>{this.props.picture}</h2>
+      </span>
+    );
+  }
+}
+
+class Responses extends Component {
+  render() {
+    return (
+      <div className="Responses">
+        <Response picture="X"/>
+        <Response picture="Y"/>
+        <Response picture="Z"/>
+      </div>
+    );
+  }
+}
 export default App;
