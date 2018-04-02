@@ -18,3 +18,8 @@
 .Responses {
   display: inline-flex;
 }
+.Score {
+  position: fixed;
+  bottom: 0px;
+  padding-left: 20px;
+}

@@ -17,6 +17,7 @@ class App extends Component {
       <div className="App">
         <Stimulus picture="Y"/>
         <Responses pictures={this.answers()}/>
+        <Score score="0"/>
       </div>
     );
   }
@@ -59,4 +60,15 @@ class Responses extends Component {
     );
   }
 }
+
+  class Score extends Component {
+    render() {
+      return (
+        <div className="Score">
+          <p>Score = {this.props.score}</p>
+        </div>
+      )
+    }
+  }
+
 export default App;
